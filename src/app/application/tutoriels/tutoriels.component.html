@@ -1,0 +1,125 @@
+<div class="text-info container" style="margin-top: 4em">
+
+    <span [ngSwitch]="myParam">
+        <ng-container *ngSwitchCase="1">
+            <div>
+                <h1>Mini Tutorial Angular</h1>
+                <h4>Angular est un framework Web basé sur JavaScript.</h4>
+                <p>Il sert a créer des SPA(Single page application).</p>
+                <p>Son architecture est basée sur 4 tableaux.</p>
+                <p>Le premier est le tableau declarations qui
+                    contient tous les selecteurs des composants.</p>
+                <p>Lorsqu'on creer un composante avec
+                    ng g c il l'ajoute automatiquement dans le tableaux de composant.</p>
+                <p>Un composant contient
+                    4 fichier normalement.</p>
+                <p>Un fichier de tests, un fichier css global qui peut ajouter
+                    du style pour le composant a qui il appartient, un fichier html global qui sert a contenir
+                    que du html qui est tres utile puisqu'il evitera de grossir le dernier fichier le .ts.</p>
+                <p> On
+                    precise la location de ces fichiers dans template-url="" pour html et styleUrls pour le css.</p>
+                <p>On peut aussi ajouter le css et html dans le .ts a l'interieur de template mais il est
+                    deconseiller vu qu'on finira avec un gros fichier .ts</p>
+                <p>Toute les composants
+                    finissent par component dans ce tableau.</p>
+                <p>Le deuxieme est le tableau imports il contient
+                    tout les librairies internes et externes qu'on peut utiliser.</p>
+                <p>Toute les librairies finissent par
+                    Module. Le troisieme est Providers qui contient tous les services.</p>
+                <p>On a un service pour tout
+                    chaque modele et chaque model represente une table dans une base de donnée. </p>
+                <p>Chaque model represente une table dans une base de donnée. </p>
+                <p>Le service est un objet
+                    qui se fait utiliser et qui permet de cacher, communiquer avec la base de donnée.</p>
+                <p>Il contient le
+                    C.R.U.D qui
+                    sert a soit creer, lire, mettre a jour ou supprimer des objets de la base de donnée.</p>
+                <p> Le dernier est
+                    bootstrap
+                    qui est different du bootstrap de type, il contient un seul composant nommé app-root et il est le
+                    composant principal qui
+                    se fait appeler par l'index.html</p>
+
+
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="2">
+            <div>
+                <h1>Mini Tutorial Crud</h1>
+                <h3>La base de données utilise le Design Pattern C.R.U.D</h3>
+                <p>Le CRUD est un plan qui se traduit C pour CREATE, R pour READ, U pour update et D pour DELETE</p>
+                <P> Dans le langage SQL il est synonyme de INSERT,SELECT,UPDATE et DELETE</P>
+                <p>Dans Angular il est synonyme de POST,GET,PUT et DELETE</p>
+                <p>On a acces au Design Pattern C.R.U.D dans Angular en utilisant les services</p>
+                <p>Les services sont un singleton qui est toujours static et son pouvoir vien
+                    de @Injectable, c'est ce qui le differencie d'une classe normal.app-formulaire
+                </p>
+                <p>On creer le service avec la commande ng g s nomDuService</p>
+                <p>Il est utile d'avoir une classe generique de service avec quel on
+                    peut specifier l'objet et le type de l'identifiant pour eviter
+                    de créer un service pour chaque model.
+                </p>
+                <p>A partir de la classe générique, on doit ensuite utiliser l'heritage(extends)
+                    en donnant en parametre le model du service voulu et son type d'identifiant.
+                </p>
+                <p>Dans le constructeur du service on a besoin de mettre le HttpClient qui sert
+                    comme outil de communication avec la base de données et il faut aussi l'importer de
+                    @angular/common/http et ensuite le ajouter dans le tableaux imports du app module.
+                </p>
+                <p>Pour utiliser le service de notre model, il faut l'ajouter dans notre
+                    constructeur.
+                </p>
+                <p>Pour chaque methode, on doit les mettres dans le ngOnInit pour que
+                    chaque fois que l'on démarre le projet il execute la methode du CRUD voulu.
+                </p>
+                <p>Pour éviter des erreurs du a la synchronisation, on utilise la méthode
+                    subscribe dans la méthode du CRUD et on spécifie dans le service que
+                    ca retourne un Observable pour qu'on soit toujours notifié lorsqu'il y a
+                    des changements
+                </p>
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+            <div>
+                <h1>Mini Tutorial Relations Entre Objets</h1>
+                <h3>Entre 2 objets il y a 5 relations possibles</h3>
+                <ol>
+                    <li>L'heritage</li>
+                    <li>L'implementation</li>
+                    <li>L'association</li>
+                    <li>La composition</li>
+                    <li>L'agregation</li>
+                </ol>
+                <li>Dans l'heritage, on utilise le mot extends pour définir l'heritage</li>
+                <li>Dans l'implementation, on utilise le mot implements pour définir l'implementation ou qu'un des
+                    objets sera une interface</li>
+                <li>L'association est spéciale, il y a 3 types d'associations</li>
+                <ol>
+                    <li>La premiere est la relation one to one.
+                        <ul>On la définis en temps que soit objet A devient un attribut dans l'objet B ou l'inverse</ul>
+                    </li>
+                    <li>La deuxieme est la relation one to many</li>
+                    <ul>On la définis en temps que dans le code de la classe de l'objet A il y aura un
+                        attribut de type TABLEAU de B
+                    </ul>
+                    <li>La troisieme est la relation many to many</li>
+                    <ul>On la définis en créant une nouvelle classe AB qui aura
+                        au moin 2 attribut(un de l'objet A et un de l'objet B)
+                    </ul>
+                </ol>
+                <li>Dans la composition, la classe de l'objet A est un attribut de la classe de l'objet B et doit etre
+                    instancié dans
+                    tout constructeur de B
+                </li>
+                <li>Dans l'aggregation, la classe de l'objet A est un attribut de la classe de l'objet B mais il n'est
+                    pas obliger de l'instancier dans
+                    tout constructeur de B.
+                </li>
+                <h3 class="text-danger">Rappel</h3>
+                <p class="text-danger">Il faut toujours que le nombre de classe Typescript soit egal ou superieur au
+                    nombre de classes du diagrammes sauf
+                    quand il y a des relations many to many </p>
+            </div>
+        </ng-container>
+    </span>
+</div>

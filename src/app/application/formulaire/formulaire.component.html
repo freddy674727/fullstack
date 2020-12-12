@@ -1,0 +1,63 @@
+<div class="text-white " style="margin-top: 56px;background-color: #6BCBCB;" >
+  <h2 class="text-center">Nouvelle glace</h2>
+  <form class="container" [formGroup]="menuForm" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="validMessage != ''">
+      <h3 class="has-info text-danger">{{validMessage}}</h3>
+    </div>
+
+    <div class="form-group">
+      <label for="nom">Nom</label>
+      <input type="nom" id="nom" formControlName="nom" class="form-control" placeholder="Nom de la glace"/>
+    </div>
+
+    <div class="form-group">
+      <label for="prix">Prix</label>
+      <input type="number" id="prix" formControlName="prix" class="form-control" placeholder="Prix"/>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control" rows="3" placeholder="Entrez la description de la glace"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ingredients">Ingredients</label>
+      <textarea id="ingredients" formControlName="ingredients" class="form-control" rows="3" placeholder="Entrez les ingredients utilisées"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="saveur">Saveur de la creme</label>
+      <select id="saveur" formControlName="saveur" class="form-control" name="saveur">
+        <option value="Oreo" >Oreo</option>
+        <option value="Chocolat">Chocolat</option>
+        <option value="Vanille">Vanille</option>
+        <option value="Orange">Orange</option>
+        <option value="Caramel">Caramel</option>
+        <option value="Pate a biscuit">Pate a biscuit</option>
+        <option value="Menthe">Menthe</option>
+        <option value="Amandes">Amandes</option>
+        <option value="Citron">Citron</option>
+        <option value="Melon">Melon</option>
+        <option value="Raisin">Raisin</option>
+        <option value="Cerise">Cerise</option>
+        <option value="Banane">Banane</option>
+        <option value="Barbe a papa">Barbe a papa</option>
+        <option value="Pamplemousse">Pamplemousse</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <p>Type</p>
+      <input type="radio" id="Glace" name="type" value="Glace" formControlName="type">
+      <label for="Glace">&nbsp;Glace</label><br>
+      <input type="radio" id="Sandwich" name="type" value="Sandwich" formControlName="type">
+      <label for="Sandwich">&nbsp;Sandwich</label><br>
+      <input type="radio" id="Tourbillon" name="type" value="Tourbillon" formControlName="type">
+      <label for="Tourbillon">&nbsp;Tourbillon</label>
+    </div>
+
+    <button class="btn btn-primary text-white" style="margin-bottom: 20px;">Ajouter</button>
+
+  </form>
+</div>
